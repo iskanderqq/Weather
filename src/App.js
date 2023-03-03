@@ -2,8 +2,9 @@ import React from "react";
 
 
 function WeatherDate(props){
+   
     let date = new Date()
-    let a = "asd"
+    
     return(
         <p>
             {date.toLocaleDateString()}
@@ -19,38 +20,61 @@ function City(props){
     )
 }
 
-// function Temp(props){
-//     async fucn
-//     return(
-//         <p>
+function Temp(props){
+    if(props.error){
+        return(
+            <p>{props.error.message}</p>
+        )
+    }else if(!props.isLoaded){
+        return(
+            <p>
+                Loading
+            </p>
+        )
+    }else {
+        return(
+            <p>
+                {Math.round(props.res - 273.15) }
+            </p>
+        )
+    }
+}
 
-//         </p>
-//     )
-// }
+
 
 
 class App extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            temp: 0,
-        }
+            error: null,
+            isLoaded: false,
+            res: null,
+        };
         
     }
-    async temp(){
-        let asd;
-        let response = await fetch("https://api.openweathermap.org/data/2.5/weather?lat=55.7823547&lon=49.1242266&appid=1ea38a5fe3d4112ce0838391dcd621e3")
-        console.log(response)
-        asd = await response.json()
-        this.setState({
-            temp: asd.main.temp
-        })
+   
+    componentDidMount(){
+        fetch("https://api.openweathermap.org/data/2.5/weather?lat=55.7823547&lon=49.1242266&appid=6cc8447dbdf18663729ccee4064bc370")
+        .then(res => res.json())
+        .then(
+            (result) => {
+                this.setState({
+                    isLoaded: true,
+                    res: result.main.temp
+                });
+            },
+            (error) =>{
+                this.setState({
+                    isLoaded: true,
+                    error
+                })
+            }
+        )
     }
 
-
     render(){
-        let tempo =  this.state.temp - 273.15
-        this.temp()
+      const {error, isLoaded, res} = this.state;
         return(
         
             <div className="wrapper">
@@ -63,7 +87,7 @@ class App extends React.Component{
                    <div>
 
                    </div>
-                        <p> {Math.round(tempo)}</p>
+                   <Temp error ={error} isLoaded = {isLoaded} res = {res}></Temp>
                     </div>
             </div>
         )

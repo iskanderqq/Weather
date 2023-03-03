@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Revalia&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 html{
   width: 100%;
   height: 100%;
@@ -18,6 +19,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+p{
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
 .wrapper{
  width: 100%;
  height: 100vh;
@@ -32,6 +39,6 @@ align-items: center;
   justify-content: space-evenly;
   width: 400px;
   height: 600px;
-  background: linear-gradient(180deg, #1BC3E8 0%, #BEC9CB 100%);
-border-radius: 27px;
+  background: linear-gradient(180deg, #1BC3E8 0%, #CFF2FA 100%);
+  border-radius: 27px;
 }
