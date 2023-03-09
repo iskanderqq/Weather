@@ -51,9 +51,12 @@ align-items: center;
 
 .form-btn{
   width: 50%;
-  background-color: transparent;
+  background-color: #afe6f2;
   font-size: 20px;
   cursor: pointer;
+}
+.form-btn:hover{
+  scale: 1.05;
 }
 
 .weather-block{

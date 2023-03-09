@@ -13,11 +13,17 @@ function WeatherDate(props){
 }
 
 function City(props){
-    return(
-        <p>
-            {props.city}
-        </p>
-    )
+    if(props.err){
+        return(
+            <p></p>
+        )}else{
+            return(
+                <p>
+                    {props.city}
+                </p>
+            )
+        }
+    
 }
 
 function Temp(props){
@@ -28,7 +34,7 @@ function Temp(props){
         )
     }else if(props.answ === null){
         return(
-            <p>Загрузка</p>
+            <p></p>
         )
     }else{
         let t  = props.answ.main.temp - 273.15;
@@ -115,7 +121,7 @@ function App(){
     <div className="weather-block">
         <div className="weather-block__about">
             <WeatherDate/>
-            <City  city = {city}></City>
+            <City  city = {city} err={err}></City>
         </div>
        <div>
        <Temp answ = {answ} err ={err}></Temp>
