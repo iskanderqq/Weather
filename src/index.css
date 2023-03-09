@@ -29,9 +29,33 @@ p{
  width: 100%;
  height: 100vh;
  display: flex;
+ flex-direction: column;
+ row-gap: 50px;
  justify-content: center;
 align-items: center;
 }
+.form{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+}
+.cityInput{
+  font-size: 20px;
+  text-align: center;
+  outline: 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.form-btn{
+  width: 50%;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .weather-block{
   display: flex;
   flex-direction: column;
